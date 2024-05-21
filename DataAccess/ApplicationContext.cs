@@ -1,5 +1,7 @@
 using dotnet_training.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace dotnet_training.DataAccess
 {

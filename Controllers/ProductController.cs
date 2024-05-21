@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 
 namespace dotnet_training.Controllers
-{   
+{  
     [Route("api/[controller]")]
     [ApiController]
 
@@ -19,7 +19,7 @@ namespace dotnet_training.Controllers
         }
 
         [HttpGet("Products")]
-        [Authorize(Roles = "admin,user")]
+        [Authorize(Policy = "user")]
         
         public IActionResult GetProducts() 
         {
@@ -28,7 +28,7 @@ namespace dotnet_training.Controllers
         }
 
         [HttpGet("Product/{id}")]
-        [Authorize(Roles = "admin,user")]
+        [Authorize(Policy = "user")]
         public IActionResult GetProduct([FromRoute] int id)
         {
             var product = _context.Products.FirstOrDefault(x => x.Id == id);
@@ -42,7 +42,7 @@ namespace dotnet_training.Controllers
 
 
         [HttpPost("Create")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Policy = "admin")]
         public IActionResult Save([FromBody] Product product) 
         {
             _context.Products.Add(product);
@@ -51,7 +51,7 @@ namespace dotnet_training.Controllers
         }
 
         [HttpPut("Update")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Policy = "admin")]
         public IActionResult Update([FromBody] Product product) 
         {
             var result = _context.Products.AsNoTracking().FirstOrDefault(x => x.Id == product.Id);
@@ -69,7 +69,7 @@ namespace dotnet_training.Controllers
 
 
         [HttpDelete("Delete")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Policy = "admin")]
         public IActionResult Delete([FromQuery] int id)
         {
             var deleteProduct = _context.Products.AsNoTracking().FirstOrDefault(x => x.Id == id);
