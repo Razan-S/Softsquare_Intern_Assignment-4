@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "t3gNLDCqO/nhPsIQeWA2GTPmmX/yHiJTeQfOif4IJHw=",
+  "Source": "dotnet_training",
+  "BasePath": "_content/dotnet_training",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
